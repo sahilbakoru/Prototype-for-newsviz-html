@@ -1,28 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Business News</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="container">
-    <div class="search-bar">
-      <input type="text" placeholder="Search">
-      <span class="search-icon">🔍</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elite Business News</title>
+    <style>
+      body {
+       font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+      }
+      .container {
+        width: 50%;
+  max-width: 1100px;
+  min-width: 300px;
+  margin: 40px auto;
+  padding: 0px;
+  border: 2px solid #000000;
+       
+      }
+      .header {
+        padding: 15px 0; /* Reset to avoid doubling internal padding, adjust as needed */
+        background: linear-gradient(90deg, #ffffff, #ffffff);
+        color: #000000;
+        font-size: 15px;
+        border-bottom: 1px solid #000000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .header .logo {
+        font-weight: 700;
+        color: #666;
+        padding-left: 20px; /* Maintain some internal spacing */
+      }
+      .header .timestamp {
+        font-size: 13px;
+        color: #666;
+        padding-right: 20px; /* Maintain some internal spacing */
+      }
+      .main-article {
+        padding: 35px 0; /* Reset to avoid doubling, adjust as needed */
+        border-bottom: 1px solid #e5e7eb;
+      }
+      .main-article h1 {
+        margin: 0 0 18px 0;
+        font-size: 34px;
+        color: #333;
+        font-weight: 700;
+      }
+      .main-article p {
+        margin: 0 0 20px 0;
+        font-size: 17px;
+        color: #4a4a4a;
+      }
+      .main-article .meta {
+        margin-bottom: 20px;
+        font-size: 14px;
+        color: #777;
+      }
+      .main-article .meta .date {
+        margin-right: 15px;
+      }
+      .main-article .details {
+        margin-bottom: 20px;
+        font-size: 14px;
+        color: #666;
+      }
+      .main-article .details .categories {
+        margin-bottom: 10px;
+        font-weight: 500;
+      }
+      .main-article .details .impact-score {
+        margin-bottom: 10px;
+      }
+      .main-article .details .impact-score .star {
+        color: #1abc9c;
+      }
+      .main-article .details .tone-breakdown {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .main-article .details .tone-breakdown li {
+        margin-bottom: 6px;
+        display: flex;
+        justify-content: space-between;
+        width: 200px;
+      }
+      .main-article .details .tone-breakdown li span:first-child {
+        font-weight: 500;
+      }
+      .recommended {
+        padding: 35px 0; /* Reset to avoid doubling, adjust as needed */
+      }
+      .recommended h3 {
+        margin: 0 0 25px 0;
+        font-size: 24px;
+        color: #333;
+        font-weight: 600;
+      }
+      .recommended-grid {
+        border-left: 0px solid #000000;
+        border-top: 2px solid #000000;
+
+        overflow: hidden;
+      }
+      .recommended-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /* grid-template-rows: 1fr 1fr; */
+        gap: 0;
+      }
+      .recommended-item {
+        border-top: 2px solid #000000;
+        border-left: 2px solid #000000;
+        border-bottom: 1px solid #000000;
+        padding: 20px;
+        height: 180px;
+        background-color: #fff;
+      
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font-size: 14px;
+        color: #666;
+      }
+      .recommended-item:nth-child(1),
+      .recommended-item:nth-child(2) {
+        border-top: none;
+      }
+      .recommended-item:nth-child(odd) {
+        border-left: none;
+      }
+      .recommended-item h4 {
+        margin: 0 0 8px 0;
+        font-size: 18px;
+        color: #333;
+        font-weight: 600;
+      }
+      .recommended-item p {
+        margin: 0;
+        font-size: 14px;
+        color: #777;
+      }
+      .recommended-item .impact-score {
+        font-size: 13px;
+        color: #666;
+      }
+      .recommended-item .impact-score .star {
+        color: #1abc9c;
+      }
+      @media (max-width: 768px) {
+        .container {
+          width: 90%;
+          padding: 0 60px; /* Adjusted to scale with width */
+        }
+        .main-article h1 {
+          font-size: 26px;
+        }
+        .main-article p {
+          font-size: 15px;
+        }
+        .main-article .details {
+          font-size: 13px;
+        }
+        .recommended-item {
+          height: 160px;
+        }
+      }
+      @media (max-width: 480px) {
+        .container {
+          width: 95%;
+          padding: 0 40px; /* Adjusted to scale with width */
+        }
+        .main-article h1 {
+          font-size: 22px;
+        }
+        .main-article p {
+          font-size: 14px;
+        }
+        .main-article .details {
+          font-size: 12px;
+        }
+        .recommended-item {
+          height: 140px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <span class="logo">Insight</span>
+        <span class="timestamp">Updated: Jun 09, 2025, 01:21 AM IST</span>
+      </div>
+      <div class="main-article">
+        <h1>Will Musk vs. Trump Affect xAI’s $5 Billion Debt Deal?</h1>
+        <p>
+          While the online feud between Elon Musk and industry leaders continues
+          to unfold, questions arise about its potential impact on xAI's $5
+          billion debt deal. Analysts are divided, with some suggesting it could
+          strengthen Musk's negotiating power, while others warn of reputational
+          risks that might complicate financing.
+        </p>
+        <div class="meta">
+          <span class="date">Published: Jun 07, 2025, 4:37 PM IST</span>
+          <span>By: John Doe</span>
+        </div>
+        <div class="details">
+          <div class="categories">
+            Categories: AI, Social, Startups, TC, Elon Musk, X, xAI
+          </div>
+          <div class="impact-score">
+            Impact Score: <span class="star">★</span>60%
+          </div>
+          <ul class="tone-breakdown">
+            <li><span>Optimistic:</span> <span>5%</span></li>
+            <li><span>Critical:</span> <span>40%</span></li>
+            <li><span>Neutral:</span> <span>50%</span></li>
+            <li><span>Other:</span> <span>5%</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="recommended">
+        <h3>Recommendations</h3>
+        <div class="recommended-grid">
+          <div class="recommended-list">
+            <div class="recommended-item">
+              <h4>xAI’s Latest AI Breakthrough</h4>
+              <p>
+                New advancements in xAI’s AI models promise to revolutionize
+                business analytics.
+              </p>
+              <div class="impact-score">
+                Impact Score: <span class="star">★</span>75%
+              </div>
+            </div>
+            <div class="recommended-item">
+              <h4>Elon Musk’s Next Venture</h4>
+              <p>
+                Speculation grows about Musk’s plans following recent market
+                shifts.
+              </p>
+              <div class="impact-score">
+                Impact Score: <span class="star">★</span>65%
+              </div>
+            </div>
+            <div class="recommended-item">
+              <h4>Startup Funding Trends</h4>
+              <p>
+                2025 sees a surge in startup investments despite economic
+                challenges.
+              </p>
+              <div class="impact-score">
+                Impact Score: <span class="star">★</span>55%
+              </div>
+            </div>
+            <div class="recommended-item">
+              <h4>TechCrunch Insights</h4>
+              <p>Key takeaways from the latest TechCrunch business report.</p>
+              <div class="impact-score">
+                Impact Score: <span class="star">★</span>70%
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="graph-section">Graph here</div>
-    <div class="stock-tabs">
-      <span class="stock-tab">stock</span>
-      <span class="stock-tab">stock</span>
-      <span class="stock-tab">stock</span>
-      <span class="stock-tab">stock</span>
-      <span class="stock-tab">stock</span>
-    </div>
-    <div class="news-article">News Article</div>
-    <div class="news-article">News Article</div>
-    <div class="news-article">News Article</div>
-  </div>
-</body>
+  </body>
 </html>
