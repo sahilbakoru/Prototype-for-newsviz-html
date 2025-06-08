@@ -1,0 +1,171 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  background-color: #f9f9f9;
+}
+
+.container {
+  width: 50%;
+  max-width: 1100px;
+  min-width: 300px;
+  margin: 40px auto;
+  padding: 10px; /* As per your update */
+  border: 0px solid #333;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 2px solid #333;
+  border-bottom: none;
+  padding: 1px; /* As per your update */
+  margin-bottom: 0;
+  font-size: 30px; /* As per your update */
+}
+
+.search-bar input {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  font-size: 30px; /* As per your update */
+  padding: 10px 10px; /* As per your update */
+}
+
+.search-icon {
+  padding: 10px 50px; /* As per your update */
+  font-size: 24px;
+  cursor: pointer;
+  border-left: 2px solid #333;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.graph-section {
+  height: 350px;
+  border: 2px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-size: 24px;
+}
+
+.stock-tabs {
+  display: flex;
+  margin: 0;
+  padding: 1px 0;
+  border: 2px solid #333;
+  border-top: none;
+  border-bottom: none;
+  position: relative;
+}
+
+.stock-tab {
+  padding: 15px 10px;
+  font-size: 18px;
+  cursor: pointer;
+  flex: 1;
+  text-align: center;
+  border-right: 1px solid #333;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.stock-tab:last-child {
+  border-right: none;
+}
+
+.news-article {
+  height: 120px;
+  border: 2px solid #333;
+  border-bottom: none;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  font-size: 18px;
+}
+
+.news-article:first-child {
+  border-top: 2px solid #333;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  .container {
+    width: 90%; /* Adjusted from 90% to ensure better spacing */
+  }
+
+  .search-bar {
+    padding: 1px;
+    font-size: 25px; /* Slightly reduced */
+  }
+
+  .search-bar input {
+    font-size: 25px;
+    padding: 8px 8px; /* Reduced padding */
+  }
+
+  .search-icon {
+    padding: 8px 40px; /* Reduced padding */
+    font-size: 20px;
+  }
+
+  .graph-section {
+    height: 250px;
+  }
+
+  .stock-tab {
+    font-size: 16px;
+    padding: 10px 5px;
+  }
+
+  .news-article {
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+    max-width: 500px; /* Added max-width to prevent excessive stretching */
+    padding: 5px; /* Reduced padding on mobile */
+  }
+
+  .search-bar {
+    font-size: 20px;
+  }
+
+  .search-bar input {
+    font-size: 20px;
+    padding: 5px 5px;
+  }
+
+  .search-icon {
+    padding: 5px 25px; /* Further reduced */
+    font-size: 18px;
+  }
+
+  .graph-section {
+    height: 150px;
+  }
+
+  .stock-tab {
+    font-size: 14px;
+    padding: 8px 3px;
+  }
+
+  .news-article {
+    height: 80px;
+    padding: 10px;
+  }
+}
